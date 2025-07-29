@@ -21,7 +21,7 @@ export default function Partners() {
             <p className="description">{p.special}</p>
             {p.id === 'queennie' && (
               <>
-                <p className="description">LLB (Hons), University of Liverpool</p>
+                <p className="description">LLB (Hons), University of Hull</p>
                 <p className="description">Barrister-at-Law (Lincoln's Inn), BPTC, City University London</p>
                 <p className="description">Advocate & Solicitor, High Court of Malaya since 2019</p>
               </>
