@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 export default function NavBar() {
   const [open, setOpen] = useState(false)
+  const navRef = useRef(null)
   const links = [
     { id: 'home', label: 'Home' },
     { id: 'core-services', label: 'Core Services' },
@@ -12,21 +13,43 @@ export default function NavBar() {
     { id: 'contact', label: 'Contact Us' }
   ]
 
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (open && navRef.current && !navRef.current.contains(e.target)) {
+        setOpen(false)
+      }
+    }
+    const handleScroll = () => {
+      if (open) setOpen(false)
+    }
+    document.addEventListener('click', handleClickOutside)
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      document.removeEventListener('click', handleClickOutside)
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [open])
+
   return (
-    <nav>
+    <nav ref={navRef}>
       <div style={{ color: 'var(--accent)', fontSize: '1.5rem', fontWeight: 'bold' }}>
         Tai & Khan Partnership
       </div>
 
       <div className={`nav-links${open ? ' open' : ''}`}>
         {links.map(link => (
-          <a key={link.id} href={`#${link.id}`} style={{ color: 'var(--accent)' }}>
+          <a
+            key={link.id}
+            href={`#${link.id}`}
+            style={{ color: 'var(--accent)' }}
+            onClick={() => setOpen(false)}
+          >
             {link.label}
           </a>
         ))}
       </div>
 
-      <div className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(!open)}>
+      <div className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(prev => !prev)}>
         <span></span>
         <span></span>
         <span></span>
