@@ -15,14 +15,13 @@ export default function NavBar() {
   ]
 
   useEffect(() => {
-    const handleClickOutside = (e) => {
+    const handleClickOutside = e => {
       if (open && navRef.current && !navRef.current.contains(e.target)) {
         setOpen(false)
       }
     }
-    const handleScroll = () => {
-      if (open) setOpen(false)
-    }
+    const handleScroll = () => open && setOpen(false)
+
     document.addEventListener('click', handleClickOutside)
     window.addEventListener('scroll', handleScroll)
     return () => {
@@ -33,10 +32,10 @@ export default function NavBar() {
 
   return (
     <nav ref={navRef}>
-      {/* Logo replaces text heading */}
-      <div className="logo-container">
+      {/* Logo links back to home */}
+      <a href="#home" className="logo-container">
         <img src={logo} alt="Tai & Khan Partnership" />
-      </div>
+      </a>
 
       <div className={`nav-links${open ? ' open' : ''}`}>
         {links.map(link => (
@@ -51,10 +50,13 @@ export default function NavBar() {
         ))}
       </div>
 
-      <div className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(prev => !prev)}>
-        <span></span>
-        <span></span>
-        <span></span>
+      <div
+        className={`hamburger${open ? ' open' : ''}`}
+        onClick={() => setOpen(prev => !prev)}
+      >
+        <span />
+        <span />
+        <span />
       </div>
     </nav>
   )
