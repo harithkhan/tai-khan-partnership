@@ -36,7 +36,7 @@ export default function Contact() {
         </nav>
       </div>
       <div style={{ textAlign: 'center', marginTop: '1.5rem', fontSize: '0.9rem' }}>
-        &copy; {new Date().getFullYear()} Tai & Khan Partnership
+        &copy; Copyright {new Date().getFullYear()} by Tai & Khan Partnership | 000020008875 | Lawyer Firm PJ, KL, Selangor
       </div>
     </footer>
   )
