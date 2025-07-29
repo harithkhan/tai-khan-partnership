@@ -4,6 +4,9 @@ html {
   /* ensure anchor targets are offset below the fixed navbar */
   scroll-padding-top: 80px;
 }
+main {
+  overflow-x: hidden;
+}
 
 body {
   margin: 0;
