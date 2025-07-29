@@ -9,20 +9,23 @@ export default function NavBar() {
     { id: 'conveyancing', label: 'Conveyancing' },
     { id: 'debt-recovery', label: 'Debt Recovery' },
     { id: 'partners', label: 'Partners' },
-    { id: 'contact', label: 'Contact Us' },
+    { id: 'contact', label: 'Contact Us' }
   ]
+
   return (
     <nav>
       <div style={{ color: 'var(--accent)', fontSize: '1.5rem', fontWeight: 'bold' }}>
         Tai & Khan Partnership
       </div>
+
       <div className={`nav-links${open ? ' open' : ''}`}>
-        {links.map((link) => (
+        {links.map(link => (
           <a key={link.id} href={`#${link.id}`} style={{ color: 'var(--accent)' }}>
             {link.label}
           </a>
         ))}
       </div>
+
       <div className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(!open)}>
         <span></span>
         <span></span>
