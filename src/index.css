@@ -80,7 +80,7 @@ nav {
   }
 
   .logo-container {
-    margin-right: 4rem;
+    margin-right: 2rem;
     display: flex;
     align-items: center;
   }
@@ -133,7 +133,7 @@ nav {
 
   .hamburger {
     display: flex;
-    width: 25px;
+    width: 35px;
     height: 20px;
   }
 }
