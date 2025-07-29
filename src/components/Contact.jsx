@@ -1,42 +1,177 @@
+// src/components/Contact.jsx
 import React from 'react'
+import logo from '../assets/websitelogo2.png'
+import { SiGooglemaps, SiWaze } from 'react-icons/si'
 
 export default function Contact() {
-  const links = [
-    { id: 'home', label: 'Home' },
-    { id: 'core-services', label: 'Core Services' },
-    { id: 'support-services', label: 'Support Services' },
-    { id: 'conveyancing', label: 'Conveyancing' },
-    { id: 'debt-recovery', label: 'Debt Recovery' },
-    { id: 'partners', label: 'Partners' }
+  const navItems = [
+    'Home',
+    'Core Services',
+    'Support Services',
+    'Conveyancing',
+    'Debt Recovery',
+    'Partners',
+    'Contact Us',
   ]
+
   return (
-    <footer id="contact" style={{ backgroundColor: 'var(--primary)', color: 'var(--accent)', padding: '2rem 1rem' }}>
-      <h2 style={{ textAlign: 'center', color: 'var(--accent)', marginBottom: '1.5rem', fontSize: '2rem' }}>Contact Us</h2>
-      <div className="container" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
-        <div>
-          <h3 style={{ margin: 0 }}>
+    <footer
+      id="contact"
+      style={{
+        background: 'var(--primary)',
+        color: 'var(--accent)',
+        padding: '2rem 1rem',
+      }}
+    >
+      <div
+        className="footer-content"
+        style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+        }}
+      >
+        {/* Info (centered) */}
+        <div
+          className="contact-info"
+          style={{ textAlign: 'center' }}
+        >
+          <h2
+            style={{
+              color: 'var(--accent)',
+              marginBottom: '1rem',
+              fontSize: '2rem',
+            }}
+          >
+            Contact Us
+          </h2>
+
+          <img
+            src={logo}
+            alt="Tai & Khan Partnership logo"
+            style={{
+              maxHeight: '40px',
+              marginBottom: '1rem',
+              objectFit: 'contain',
+            }}
+          />
+
+          <h3
+            style={{
+              margin: '0.5rem 0',
+              fontWeight: 500,
+              fontSize: '1.25rem',
+            }}
+          >
             Tai & Khan Partnership
           </h3>
-          <p style={{ margin: '0.5rem 0' }}>127A Jalan Imbi</p>
-          <p style={{ margin: '0.5rem 0' }}>Off Jalan Bukit Bintang</p>
-          <p style={{ margin: '0.5rem 0' }}>55100 Kuala Lumpur</p>
-          <p style={{ margin: '0.5rem 0' }}>
-            Email: <a href="mailto:tkpartnership@gmail.com" style={{ color: 'var(--accent)' }}>tkpartnership@gmail.com</a>
+
+          <p style={{ margin: '0.25rem 0', lineHeight: 1.2 }}>
+            127A Jalan Imbi
           </p>
-          <p style={{ margin: '0.5rem 0' }}>
+          <p style={{ margin: '0.25rem 0', lineHeight: 1.2 }}>
+            Off Jalan Bukit Bintang
+          </p>
+          <p style={{ margin: '0.25rem 0', lineHeight: 1.2 }}>
+            55100 Kuala Lumpur
+          </p>
+
+          <p style={{ margin: '1rem 0 0 0', fontSize: '1rem' }}>
             Tel: +603-2110 3536
           </p>
-        </div>
-        <nav style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-          {links.map(link => (
-            <a key={link.id} href={`#${link.id}`} style={{ color: 'var(--accent)' }}>
-              {link.label}
+          <p style={{ margin: '0.25rem 0', fontSize: '1rem' }}>
+            Email: tkpartnership@gmail.com
+          </p>
+
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '1.5rem',
+              margin: '1.5rem 0',
+            }}
+          >
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=127A+Jalan+Imbi,+Off+Jalan+Bukit+Bintang,+55100+Kuala+Lumpur"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: 'var(--accent)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                fontSize: '1rem',
+              }}
+            >
+              <SiGooglemaps size={24} /> Google Maps
             </a>
-          ))}
-        </nav>
-      </div>
-      <div style={{ textAlign: 'center', marginTop: '1.5rem', fontSize: '0.9rem' }}>
-        &copy; Copyright {new Date().getFullYear()} by Tai & Khan Partnership | 000020008875 | Lawyer Firm PJ, KL, Selangor
+            <a
+              href="https://waze.com/ul?ll=3.143897,101.712773&navigate=yes"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: 'var(--accent)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                fontSize: '1rem',
+              }}
+            >
+              <SiWaze size={24} /> Waze
+            </a>
+          </div>
+
+          <nav
+            style={{
+              display: 'flex',
+              justifyContent: 'space-evenly',
+              gap: '1rem',
+              margin: '1rem 0',
+              width: '100%',
+            }}
+          >
+            {navItems.map(label => (
+              <a
+                key={label}
+                href={`#${label.toLowerCase().replace(/ /g, '-')}`}
+                style={{
+                  color: 'var(--accent)',
+                  fontSize: '0.95rem',
+                  textDecoration: 'none',
+                }}
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+
+          <div
+            style={{
+              borderTop: '1px solid rgba(255,255,255,0.3)',
+              marginTop: '1rem',
+              paddingTop: '1rem',
+              fontSize: '0.85rem',
+            }}
+          >
+            © {new Date().getFullYear()} Tai & Khan Partnership | Lawyer Firm PJ, KL, Selangor
+          </div>
+        </div>
+
+        {/* Map */}
+        <div className="contact-map">
+          <iframe
+            title="Office Location"
+            src="https://maps.google.com/maps?q=127A%20Jalan%20Imbi%20Off%20Jalan%20Bukit%20Bintang%2055100%20Kuala%20Lumpur&z=15&output=embed"
+            style={{
+              width: '100%',
+              height: '100%',
+              border: 0,
+              minHeight: '300px',
+              borderRadius: '8px',
+            }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
       </div>
     </footer>
   )

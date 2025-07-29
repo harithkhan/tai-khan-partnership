@@ -243,3 +243,35 @@ img {
   object-fit: contain;
   border-radius: 0 !important;
 }
+
+/* in src/index.css */
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* hide map on tablet/mobile and center everything */
+@media (max-width: 1024px) {
+  .contact-map {
+    display: none;
+  }
+}
+
+/* on desktop: two-column layout */
+@media (min-width: 1025px) {
+  .footer-content {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .contact-info {
+    flex: 1;
+  }
+  .contact-map {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+  }
+}
