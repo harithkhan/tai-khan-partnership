@@ -15,7 +15,7 @@ export default function Contact() {
       <div className="container" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
         <div>
           <h3 style={{ margin: 0 }}>
-            Tai & Khan Partnership <span style={{ fontWeight: 'normal' }}>(Reg No. 000020008875)</span>
+            Tai & Khan Partnership
           </h3>
           <p style={{ margin: '0.5rem 0' }}>127A Jalan Imbi</p>
           <p style={{ margin: '0.5rem 0' }}>Off Jalan Bukit Bintang</p>
