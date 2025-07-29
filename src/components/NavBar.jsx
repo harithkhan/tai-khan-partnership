@@ -20,8 +20,9 @@ export default function NavBar() {
         setOpen(false)
       }
     }
-    const handleScroll = () => open && setOpen(false)
-
+    const handleScroll = () => {
+      if (open) setOpen(false)
+    }
     document.addEventListener('click', handleClickOutside)
     window.addEventListener('scroll', handleScroll)
     return () => {
@@ -32,17 +33,17 @@ export default function NavBar() {
 
   return (
     <nav ref={navRef}>
-      {/* Logo links back to home */}
-      <a href="#home" className="logo-container">
-        <img src={logo} alt="Tai & Khan Partnership" />
-      </a>
+      <div className="logo-container">
+        <a href="#home" onClick={() => setOpen(false)}>
+          <img src={logo} alt="Tai & Khan Partnership logo" />
+        </a>
+      </div>
 
       <div className={`nav-links${open ? ' open' : ''}`}>
         {links.map(link => (
           <a
             key={link.id}
             href={`#${link.id}`}
-            style={{ color: 'var(--accent)' }}
             onClick={() => setOpen(false)}
           >
             {link.label}
