@@ -59,16 +59,31 @@ nav {
 
 @media (max-width: 1024px) {
   .nav-links {
+    display: flex;
     flex-direction: column;
     width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
     max-height: 0;
     overflow: hidden;
     background: var(--primary);
     transition: max-height 0.3s ease;
+    z-index: 99;
   }
-  .nav-links.open { max-height: 400px; }
-  .hamburger { display: flex; }
+  .nav-links.open {
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+  }
+  .hamburger {
+    display: flex;
+  }
 }
+  .nav-links.open {
+    /* allow full list to show when open */
+    max-height: calc(100vh - 60px);
+  }
+  .hamburger { display: flex; }
 
 /* Section headers */
 h2 { color: var(--primary); margin-top: 0; }
