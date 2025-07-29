@@ -61,7 +61,7 @@ nav {
 @media (max-width: 1024px) {
   nav {
     height: 48px;
-    padding: 0 1rem;
+    padding: 0.5rem 1rem;
     align-items: center;
   }
   html {
@@ -149,5 +149,29 @@ h2 { color: var(--primary); margin-top: 0; }
 img { max-width: 100%; height: auto; border-radius: 8px; }
 
 /* Logo overrides */
-.logo-container { height: 100%; display: flex; align-items: center; }
-.logo-container img { height: 100%; width: auto; border-radius: 0 !important; }
+.logo-container {
+  display: flex;
+  align-items: center;
+  /* no extra padding, base container */
+}
+.logo-container img {
+  /* desktop logo size and vertical margins */
+  max-height: 48px;
+  width: auto;
+  margin: 6px 0;
+  object-fit: contain;
+  border-radius: 0 !important;
+}
+
+/* Adjust logo and spacing on mobile/tablet */
+@media (max-width: 1024px) {
+  .logo-container {
+    /* create gap between logo and hamburger */
+    margin-right: 1rem;
+  }
+  .logo-container img {
+    /* smaller logo height on mobile */
+    max-height: 32px;
+    margin: 8px 0;
+  }
+}

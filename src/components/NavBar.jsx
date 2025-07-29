@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import logo from '../assets/websitelogo2.png'
 
 export default function NavBar() {
   const [open, setOpen] = useState(false)
@@ -32,8 +33,9 @@ export default function NavBar() {
 
   return (
     <nav ref={navRef}>
-      <div style={{ color: 'var(--accent)', fontSize: '1.5rem', fontWeight: 'bold' }}>
-        Tai & Khan Partnership
+      {/* Logo replaces text heading */}
+      <div className="logo-container">
+        <img src={logo} alt="Tai & Khan Partnership" />
       </div>
 
       <div className={`nav-links${open ? ' open' : ''}`}>
