@@ -23,15 +23,16 @@ export default function Partners() {
               <>
                 <p className="description">LLB (Hons), University of Liverpool</p>
                 <p className="description">Barrister-at-Law (Lincoln's Inn), BPTC, City University London</p>
+                <p className="description">Advocate & Solicitor, High Court of Malaya since 2019</p>
               </>
             )}
             {p.id === 'harith' && (
               <>
                 <p className="description">LLB (Hons), University of Reading</p>
                 <p className="description">Barrister-at-Law (Lincoln's Inn), BPTC, City University London</p>
+                <p className="description">Advocate & Solicitor, High Court of Malaya since 2018</p>
               </>
             )}
-            <p className="description">Advocate & Solicitor, High Court of Malaya since 2018</p>
           </div>
         ))}
       </div>
