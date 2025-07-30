@@ -11,7 +11,6 @@ export default function Contact() {
     'Conveyancing',
     'Debt Recovery',
     'Partners',
-    'Contact Us',
   ]
 
   return (
@@ -65,13 +64,13 @@ export default function Contact() {
             Tai & Khan Partnership
           </h3>
 
-          <p style={{ margin: '0.25rem 0', lineHeight: 1.2 }}>
+          <p style={{ margin: '0.25rem 0', lineHeight: 1.1 }}>
             127A Jalan Imbi
           </p>
-          <p style={{ margin: '0.25rem 0', lineHeight: 1.2 }}>
+          <p style={{ margin: '0.25rem 0', lineHeight: 1.1 }}>
             Off Jalan Bukit Bintang
           </p>
-          <p style={{ margin: '0.25rem 0', lineHeight: 1.2 }}>
+          <p style={{ margin: '0.25rem 0', lineHeight: 1.1 }}>
             55100 Kuala Lumpur
           </p>
 
@@ -120,11 +119,13 @@ export default function Contact() {
             </a>
           </div>
 
+          {/* Responsive nav links */}
           <nav
             style={{
               display: 'flex',
-              justifyContent: 'space-evenly',
-              gap: '1rem',
+              flexWrap: 'wrap',           /* allow wrapping */
+              justifyContent: 'center',   /* center each row */
+              gap: '0.75rem 1.5rem',       /* row & column gaps */
               margin: '1rem 0',
               width: '100%',
             }}
@@ -137,6 +138,8 @@ export default function Contact() {
                   color: 'var(--accent)',
                   fontSize: '0.95rem',
                   textDecoration: 'none',
+                  whiteSpace: 'nowrap',      /* keep two-word labels together */
+                  padding: '0.25rem 0',
                 }}
               >
                 {label}
@@ -167,6 +170,7 @@ export default function Contact() {
               border: 0,
               minHeight: '300px',
               borderRadius: '8px',
+              marginTop: '3rem'
             }}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
