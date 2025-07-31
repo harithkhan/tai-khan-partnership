@@ -9,12 +9,16 @@ export default function NavBar() {
   const { pathname } = useLocation()
 
   const links = [
-    { label: 'Home', to: '/', onClick: () => window.scrollTo({ top: 0, behavior: 'smooth' }) },
-    { label: 'Services',    to: { pathname: '/', hash: '#services' } },
-    { label: 'Partners',    to: { pathname: '/', hash: '#partners' } },
-    { label: 'Conveyancing', to: '/conveyancing' },
-    { label: 'Debt Recovery',to: '/debt-recovery' },
-    { label: 'Contact Us',  to: { pathname: '/', hash: '#contact' } },
+    {
+      label: 'Home',
+      to: '/',
+      onClick: () => window.scrollTo({ top: 0, behavior: 'smooth' })
+    },
+    { label: 'Services',     to: { pathname: '/', hash: '#services' } },
+    { label: 'Partners',     to: { pathname: '/', hash: '#partners' } },
+    { label: 'Conveyancing',  to: '/conveyancing' },
+    { label: 'Debt Recovery', to: '/debt-recovery' },
+    { label: 'Contact Us',   to: { pathname: '/', hash: '#contact' } }
   ]
 
   useEffect(() => {
@@ -37,11 +41,13 @@ export default function NavBar() {
   return (
     <nav ref={navRef}>
       <div className="logo-container">
-        {/* clicking always goes “/” and ScrollToSection will scroll to top */}
-        <Link to="/" onClick={() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' })
-          setOpen(false)
-        }}>
+        <Link
+          to="/"
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+            setOpen(false)
+          }}
+        >
           <img src={logo} alt="Tai & Khan Partnership logo" />
         </Link>
       </div>
@@ -52,7 +58,10 @@ export default function NavBar() {
             key={i}
             to={link.to}
             onClick={() => {
-              if (onClick) onClick()
+              // call the scroll handler only if it exists
+              if (typeof link.onClick === 'function') {
+                link.onClick()
+              }
               setOpen(false)
             }}
           >
