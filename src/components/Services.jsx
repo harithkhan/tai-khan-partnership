@@ -1,4 +1,6 @@
+// src/components/Services.jsx
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Services.css'
 
 import conveyancingImg  from '../assets/conveyancing.jpg'
@@ -13,14 +15,14 @@ export default function Services() {
       title: 'Conveyancing',
       tagline: 'Straight-forward, hassle-free',
       backCopy: `We provide expert conveyancing services to ensure smooth property transactions, from title checks to final settlement. Our team handles all documentation and liaises with relevant authorities. With clear communication and personal attention, we make every step stress-free.`,
-      anchor: '#conveyancing'
+      anchor: '/conveyancing'      // now points to dedicated page
     },
     {
       image: ringgitImg,
       title: 'Debt Recovery',
       tagline: 'No recovery, no fees',
       backCopy: `Our team aggressively pursues outstanding debts on a success-only basis, so you only pay if we succeed. We perform thorough assessments, send formal demands, and negotiate settlements. When needed, we escalate to court with minimal fuss, always aiming for a swift resolution.`,
-      anchor: '#debt-recovery'
+      anchor: '/debt-recovery'     // now points to dedicated page
     },
     {
       image: corporateImg,
@@ -52,6 +54,7 @@ export default function Services() {
 
 function FlipCard({ image, title, tagline, backCopy, anchor }) {
   const [flipped, setFlipped] = useState(false)
+
   return (
     <div
       className={`service-card${flipped ? ' flipped' : ''}`}
@@ -75,10 +78,12 @@ function FlipCard({ image, title, tagline, backCopy, anchor }) {
             <h3 className="service-title">{title}</h3>
             <p className="service-tagline">{tagline}</p>
             <p className="back-copy">{backCopy}</p>
+
             {anchor && (
-              <a href={anchor} className="learn-more">
+              // use Link so React-Router handles navigation
+              <Link to={anchor} className="learn-more">
                 Learn more →
-              </a>
+              </Link>
             )}
           </div>
         </div>
