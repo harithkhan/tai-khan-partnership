@@ -1,15 +1,16 @@
 // src/components/Contact.jsx
 import React from 'react'
+import { Link } from 'react-router-dom'
 import logo from '../assets/websitelogo2.png'
 import { SiGooglemaps, SiWaze } from 'react-icons/si'
 
 export default function Contact() {
   const navItems = [
-    'Home',
-    'Services',
-    'Conveyancing',
-    'Debt Recovery',
-    'Partners',
+    { label: 'Home',         to: '/' },
+    { label: 'Services',     to: { pathname: '/', hash: '#services' } },
+    { label: 'Partners',     to: { pathname: '/', hash: '#partners' } },
+    { label: 'Conveyancing', to: '/conveyancing' },
+    { label: 'Debt Recovery',to: '/debt-recovery' },
   ]
 
   return (
@@ -46,29 +47,27 @@ export default function Contact() {
             Contact Us
           </h2>
 
-          <img
-            src={logo}
-            alt="Tai & Khan Partnership logo"
-            style={{
-              alignSelf: 'center',
-              maxHeight: '40px',
-              marginBottom: '1rem',
-              objectFit: 'contain',
-            }}
-          />
-
-          {/* NEW: wrapper to center the block but keep its text left-aligned */}
+          {/* centered wrapper, text remains left-aligned */}
           <div style={{ alignSelf: 'center', textAlign: 'left' }}>
-            <h3
+            <img
+              src={logo}
+              alt="Tai & Khan Partnership logo"
               style={{
                 alignSelf: 'center',
-                margin: '0.5rem 0',
+                maxHeight: '40px',
+                marginBottom: '1rem',
+                objectFit: 'contain',
+              }}
+            />
+            <h3
+              style={{
+                margin: '0.5rem 0 0 0',
                 fontWeight: 500,
                 fontSize: '1.25rem',
                 textAlign: 'left',
               }}
             >
-              Tai & Khan Partnership
+              Tai &amp; Khan Partnership
             </h3>
             <p style={{ margin: '0.25rem 0', lineHeight: 1 }}>
               127A Jalan Imbi, Off Jalan Bukit Bintang
@@ -79,7 +78,7 @@ export default function Contact() {
             <p style={{ margin: '1rem 0 0 0', fontSize: '1rem' }}>
               Tel: +603-2110 3536
             </p>
-            <p style={{ margin: '0', fontSize: '1rem' }}>
+            <p style={{ margin: 0, fontSize: '1rem' }}>
               Email: tkpartnership@gmail.com
             </p>
           </div>
@@ -135,10 +134,10 @@ export default function Contact() {
               width: '100%',
             }}
           >
-            {navItems.map(label => (
-              <a
-                key={label}
-                href={`#${label.toLowerCase().replace(/ /g, '-')}`}
+            {navItems.map(item => (
+              <Link
+                key={item.label}
+                to={item.to}
                 style={{
                   color: 'var(--accent)',
                   fontSize: '0.95rem',
@@ -146,10 +145,11 @@ export default function Contact() {
                   whiteSpace: 'nowrap',
                   padding: '0.25rem 0',
                   textAlign: 'center',
+                  transition: 'color 0.2s ease',
                 }}
               >
-                {label}
-              </a>
+                {item.label}
+              </Link>
             ))}
           </nav>
 
@@ -163,7 +163,7 @@ export default function Contact() {
               textAlign: 'center',
             }}
           >
-            © {new Date().getFullYear()} Tai & Khan Partnership | Lawyer Firm PJ, KL, Selangor
+            © {new Date().getFullYear()} Tai &amp; Khan Partnership | Lawyer Firm PJ, KL, Selangor
           </div>
         </div>
 
