@@ -122,11 +122,12 @@
     color: #fbdf9c;
 }
 
-/* Remove all rounding */
+/* Soften corners */
 .service-card,
 .card-front,
 .card-back {
-  border-radius: 0;
+    border-radius: 8px;
+    overflow: hidden;  /* clip the inner content to the rounded shape */
 }
 
 /* Hover effect: slight scale & brighten */
