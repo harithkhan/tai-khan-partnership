@@ -4,14 +4,14 @@ import logo from '../assets/websitelogo2.png'
 export default function NavBar() {
   const [open, setOpen] = useState(false)
   const navRef = useRef(null)
+
   const links = [
-    { id: 'home', label: 'Home' },
-    { id: 'core-services', label: 'Core Services' },
-    { id: 'support-services', label: 'Support Services' },
-    { id: 'conveyancing', label: 'Conveyancing' },
-    { id: 'debt-recovery', label: 'Debt Recovery' },
-    { id: 'partners', label: 'Partners' },
-    { id: 'contact', label: 'Contact Us' }
+    { id: 'home',           label: 'Home' },
+    { id: 'services',       label: 'Services' },
+    { id: 'conveyancing',   label: 'Conveyancing' },
+    { id: 'debt-recovery',  label: 'Debt Recovery' },
+    { id: 'partners',       label: 'Partners' },
+    { id: 'contact',        label: 'Contact Us' },
   ]
 
   useEffect(() => {
