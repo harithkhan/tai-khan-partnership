@@ -1,0 +1,137 @@
+/* Core Services Section */
+.services {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+.services h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: var(--primary);                   
+}
+
+/* Card container: desktop no-wrap side-by-side, wrap on mobile, no gaps */
+.card-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 1024px) {
+  .card-container {
+    flex-wrap: wrap;
+  }
+}
+
+/* Each card: 50% width on desktop, 100% on mobile, pointer cursor */
+.service-card {
+  flex: 0 0 40%;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+@media (max-width: 1024px) {
+  .service-card {
+    flex: 0 0 100%;
+  }
+}
+
+/* Flip‐card inner 3D wrapper */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.service-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Both faces */
+.card-front,
+.card-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+}
+
+/* FRONT face: image + bottom-left text */
+.card-front {
+  background-size: cover;
+  background-position: center;
+}
+.card-front .overlay.full {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+/* BACK face: dark gold + centered content */
+.card-back {
+  background: #003366;
+  transform: rotateY(180deg);
+}
+.card-back .overlay.back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Text styles */
+.service-title {
+  margin: 0;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.75rem;
+  color: #fbdf9c;
+}
+.service-tagline {
+  margin: 0.25rem 0;
+  color: #fff;
+  font-size: 1rem;
+}
+.back-copy {
+  margin: 0.5rem 0;
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Learn more (back face) */
+.learn-more {
+  margin-top: 1rem;
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.learn-more:hover {
+    color: #fbdf9c;
+}
+
+/* Remove all rounding */
+.service-card,
+.card-front,
+.card-back {
+  border-radius: 0;
+}
+
+/* Hover effect: slight scale & brighten */
+.service-card:hover {
+  transform: scale(1.02);
+  filter: brightness(1.2);
+  z-index: 10;
+}
