@@ -4,6 +4,7 @@ html {
   /* ensure anchor targets are offset below the fixed navbar */
   scroll-padding-top: 80px;
 }
+
 main {
   overflow-x: hidden;
 }
@@ -136,6 +137,11 @@ nav {
     width: 35px;
     height: 20px;
   }
+
+  /* Hide footer nav in mobile/tablet */
+  .footer-nav {
+    display: none !important;
+  }
 }
 
 /* Desktop nav link hover effect */
@@ -148,6 +154,15 @@ nav {
   .nav-links a:active {
     color: #e0c110;
   }
+}
+
+/* Footer nav hover effect */
+.footer-nav a {
+  transition: color 0.2s ease;
+}
+.footer-nav a:hover,
+.footer-nav a:active {
+  color: #e0c110;
 }
 
 /* Section headers */
@@ -247,8 +262,7 @@ img {
   border-radius: 0 !important;
 }
 
-/* in src/index.css */
-
+/* Footer layout */
 .footer-content {
   display: flex;
   flex-direction: column;
@@ -278,3 +292,39 @@ img {
     max-width: 500px;
   }
 }
+
+/* Map styling */
+.contact-map iframe {
+  max-width: 500px;
+  height: 240px;
+  border-radius: 8px;
+  display: block;
+  margin: 2rem auto 0 auto;
+}
+
+/* 🔵 FIX: Adjust iframe height on desktop to stop footer overlap */
+@media (min-width: 1025px) {
+  .contact-map iframe {
+    height: 220px;  /* shorter map on desktop */
+    margin-bottom: 1rem; /* little breathing space */
+  }
+}
+
+/* Override global nav background for the footer nav only */
+.footer-nav {
+  background: transparent !important; /* let the footer’s background show through */
+  padding: 0 !important;             /* remove any padding that might push over the map */
+  position: static;                   /* ensure it doesn’t stick or overlap */
+  margin: 1rem 0;                     /* keep your desired spacing */
+}
+
+/* Footer nav links hover just like the main navbar */
+.footer-nav a {
+  transition: color 0.2s ease;
+}
+.footer-nav a:hover,
+.footer-nav a:focus,
+.footer-nav a:active {
+  color: #e0c110 !important;
+}
+

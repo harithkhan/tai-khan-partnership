@@ -119,13 +119,14 @@ export default function Contact() {
             </a>
           </div>
 
-          {/* Responsive nav links */}
+          {/* ✅ Footer nav now has className="footer-nav" */}
           <nav
+            className="footer-nav"
             style={{
               display: 'flex',
-              flexWrap: 'wrap',           /* allow wrapping */
-              justifyContent: 'center',   /* center each row */
-              gap: '0.75rem 1.5rem',       /* row & column gaps */
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '0.75rem 1.5rem',
               margin: '1rem 0',
               width: '100%',
             }}
@@ -138,7 +139,7 @@ export default function Contact() {
                   color: 'var(--accent)',
                   fontSize: '0.95rem',
                   textDecoration: 'none',
-                  whiteSpace: 'nowrap',      /* keep two-word labels together */
+                  whiteSpace: 'nowrap',
                   padding: '0.25rem 0',
                 }}
               >
@@ -170,7 +171,7 @@ export default function Contact() {
               border: 0,
               minHeight: '300px',
               borderRadius: '8px',
-              marginTop: '3rem'
+              marginTop: '3rem',
             }}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
