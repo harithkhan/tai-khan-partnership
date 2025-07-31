@@ -1,3 +1,4 @@
+// src/components/Contact.jsx
 import React from 'react'
 import logo from '../assets/websitelogo2.png'
 import { SiGooglemaps, SiWaze } from 'react-icons/si'
@@ -24,13 +25,22 @@ export default function Contact() {
         className="footer-content"
         style={{ maxWidth: '1200px', margin: '0 auto' }}
       >
-        <div className="contact-info" style={{ textAlign: 'center' }}>
+        <div
+          className="contact-info"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+          }}
+        >
           <h2
             style={{
+              alignSelf: 'center',
               color: 'var(--accent)',
               marginBottom: '1rem',
               fontSize: '2rem',
-              fontWeight: 400, /* reduced bold per prior request */
+              fontWeight: 400,
+              textAlign: 'center',
             }}
           >
             Contact Us
@@ -40,29 +50,60 @@ export default function Contact() {
             src={logo}
             alt="Tai & Khan Partnership logo"
             style={{
+              alignSelf: 'center',
               maxHeight: '40px',
               marginBottom: '1rem',
               objectFit: 'contain',
             }}
           />
 
-          <h3 style={{ margin: '0.5rem 0', fontWeight: 500, fontSize: '1.25rem' }}>
-            Tai & Khan Partnership
-          </h3>
+          {/* NEW: wrapper to center the block but keep its text left-aligned */}
+          <div style={{ alignSelf: 'center', textAlign: 'left' }}>
+            <h3
+              style={{
+                alignSelf: 'center',
+                margin: '0.5rem 0',
+                fontWeight: 500,
+                fontSize: '1.25rem',
+                textAlign: 'left',
+              }}
+            >
+              Tai & Khan Partnership
+            </h3>
+            <p style={{ margin: '0.25rem 0', lineHeight: 1 }}>
+              127A Jalan Imbi, Off Jalan Bukit Bintang
+            </p>
+            <p style={{ margin: '0.25rem 0', lineHeight: 1 }}>
+              55100 Kuala Lumpur
+            </p>
+            <p style={{ margin: '1rem 0 0 0', fontSize: '1rem' }}>
+              Tel: +603-2110 3536
+            </p>
+            <p style={{ margin: '0', fontSize: '1rem' }}>
+              Email: tkpartnership@gmail.com
+            </p>
+          </div>
 
-          <p style={{ margin: '0.25rem 0', lineHeight: 1.1 }}>127A Jalan Imbi</p>
-          <p style={{ margin: '0.25rem 0', lineHeight: 1.1 }}>Off Jalan Bukit Bintang</p>
-          <p style={{ margin: '0.25rem 0', lineHeight: 1.1 }}>55100 Kuala Lumpur</p>
-
-          <p style={{ margin: '1rem 0 0 0', fontSize: '1rem' }}>Tel: +603-2110 3536</p>
-          <p style={{ margin: '0.25rem 0', fontSize: '1rem' }}>Email: tkpartnership@gmail.com</p>
-
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', margin: '1.5rem 0' }}>
+          <div
+            style={{
+              alignSelf: 'center',
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '1.5rem',
+              margin: '1.5rem 0',
+            }}
+          >
             <a
               href="https://www.google.com/maps/dir/?api=1&destination=127A+Jalan+Imbi,+Off+Jalan+Bukit+Bintang,+55100+Kuala+Lumpur"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: 'var(--accent)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1rem' }}
+              style={{
+                color: 'var(--accent)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                fontSize: '1rem',
+              }}
             >
               <SiGooglemaps size={24} /> Google Maps
             </a>
@@ -70,7 +111,13 @@ export default function Contact() {
               href="https://waze.com/ul?ll=3.143897,101.712773&navigate=yes"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: 'var(--accent)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1rem' }}
+              style={{
+                color: 'var(--accent)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                fontSize: '1rem',
+              }}
             >
               <SiWaze size={24} /> Waze
             </a>
@@ -79,6 +126,7 @@ export default function Contact() {
           <nav
             className="footer-nav"
             style={{
+              alignSelf: 'center',
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
@@ -97,6 +145,7 @@ export default function Contact() {
                   textDecoration: 'none',
                   whiteSpace: 'nowrap',
                   padding: '0.25rem 0',
+                  textAlign: 'center',
                 }}
               >
                 {label}
@@ -106,10 +155,12 @@ export default function Contact() {
 
           <div
             style={{
+              alignSelf: 'center',
               borderTop: '1px solid rgba(255,255,255,0.3)',
               marginTop: '1rem',
               paddingTop: '1rem',
               fontSize: '0.85rem',
+              textAlign: 'center',
             }}
           >
             © {new Date().getFullYear()} Tai & Khan Partnership | Lawyer Firm PJ, KL, Selangor
