@@ -1,5 +1,6 @@
 import React from 'react'
 import conveyancingImage from '../assets/conveyancing.jpg'
+import { Link } from 'react-router-dom'
 
 export default function Conveyancing() {
   return (
@@ -19,6 +20,9 @@ export default function Conveyancing() {
       <p style={{ marginBottom: '1rem', lineHeight: '1.6' }}>
         At Tai & Khan Partnership, we prioritize transparent communication and personalized service. We keep you informed of progress, explain each step in clear terms, and respond promptly to all inquiries. Our goal is to make conveyancing in Malaysia truly hassle-free, so you can focus on your new property with confidence.
       </p>
+      <Link to="/" className="back-button" style={{ display:'inline-block', marginBottom:'1rem' }}>
+        ← Back to Home
+      </Link>
     </section>
   )
 }

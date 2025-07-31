@@ -1,5 +1,6 @@
 import React from 'react'
 import debtImage from '../assets/debt.jpg'
+import { Link } from 'react-router-dom'
 
 export default function DebtRecovery() {
   return (
@@ -19,6 +20,9 @@ export default function DebtRecovery() {
       <p style={{ marginBottom: '1rem', lineHeight: '1.6' }}>
         Should litigation become necessary, our experienced team handles every step—from filing writs and garnishee proceedings to enforcing judgments. We keep you informed, provide clear costs estimates, and work diligently to achieve a favourable outcome while minimising your financial exposure.
       </p>
+      <Link to="/" className="back-button" style={{ display:'inline-block', marginBottom:'1rem' }}>
+        ← Back to Home
+      </Link>
     </section>
   )
 }
