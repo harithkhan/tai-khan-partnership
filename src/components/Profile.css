@@ -26,23 +26,46 @@
   font-weight: bold;
 }
 
+/* Contact links under header */
+.profile-contact {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+.profile-contact a {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.profile-contact a:hover {
+  color: #e0c110;
+}
+
 /* Bio section wrapper (clears floats) */
 .profile-bio {
   overflow: auto;
+}
+/* Remove top margin from first paragraph */
+.profile-bio p:first-child {
+  margin-top: 0;
 }
 
 /* Profile image: cropped to top half, floats left */
 .profile-image {
   float: left;
   width: 300px;
-  height: 350px;               /* only top half visible */
+  height: 350px;
   object-fit: cover;
-  object-position: top center; /* show top half */
+  object-position: top center;
   border-radius: 8px;
   margin: 0 1rem 1rem 0;
 }
-
-/* Nudge Harith’s image cropping to align his head */
+/* Nudge Harith’s crop */
 .partner-profile--harith .profile-image {
   object-position: center 32%;
 }
