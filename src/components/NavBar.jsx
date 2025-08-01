@@ -1,33 +1,55 @@
-// src/components/NavBar.jsx
 import React, { useState, useEffect, useRef } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
+import './NavBar.css'
 import logo from '../assets/websitelogo2.png'
 
 export default function NavBar() {
   const [open, setOpen] = useState(false)
   const navRef = useRef(null)
+  const navigate = useNavigate()
   const { pathname } = useLocation()
 
+  // helper to jump to an in-page section
+  const goToSection = (hash) => {
+    setOpen(false)
+    if (pathname !== '/') {
+      // navigate home first
+      navigate('/')
+      // then scroll after a slight delay
+      setTimeout(() => {
+        document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
+    } else {
+      document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  // our menu items
   const links = [
     {
       label: 'Home',
       to: '/',
-      onClick: () => window.scrollTo({ top: 0, behavior: 'smooth' })
+      onClick: () => {
+        setOpen(false)
+        navigate('/')
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
     },
-    { label: 'Services',     to: { pathname: '/', hash: '#services' } },
-    { label: 'Partners',     to: { pathname: '/', hash: '#partners' } },
-    { label: 'Conveyancing',  to: '/conveyancing' },
-    { label: 'Debt Recovery', to: '/debt-recovery' },
-    { label: 'Contact Us',   to: { pathname: '/', hash: '#contact' } }
+    { label: 'Services',    section: '#services' },
+    { label: 'Partners',    section: '#partners' },
+    { label: 'Conveyancing', to: '/conveyancing' },
+    { label: 'Debt Recovery',to: '/debt-recovery' },
+    { label: 'Contact Us',   section: '#contact' },
   ]
 
+  // close mobile menu on outside click or on scroll
   useEffect(() => {
-    function handleClickOutside(e) {
+    const handleClickOutside = (e) => {
       if (open && navRef.current && !navRef.current.contains(e.target)) {
         setOpen(false)
       }
     }
-    function handleScroll() {
+    const handleScroll = () => {
       if (open) setOpen(false)
     }
     document.addEventListener('click', handleClickOutside)
@@ -44,8 +66,9 @@ export default function NavBar() {
         <Link
           to="/"
           onClick={() => {
-            window.scrollTo({ top: 0, behavior: 'smooth' })
             setOpen(false)
+            navigate('/')
+            window.scrollTo({ top: 0, behavior: 'smooth' })
           }}
         >
           <img src={logo} alt="Tai & Khan Partnership logo" />
@@ -53,21 +76,37 @@ export default function NavBar() {
       </div>
 
       <div className={`nav-links${open ? ' open' : ''}`}>
-        {links.map((link, i) => (
-          <Link
-            key={i}
-            to={link.to}
-            onClick={() => {
-              // call the scroll handler only if it exists
-              if (typeof link.onClick === 'function') {
-                link.onClick()
-              }
-              setOpen(false)
-            }}
-          >
-            {link.label}
-          </Link>
-        ))}
+        {links.map((item, i) => {
+          if (item.section) {
+            // in-page anchor
+            return (
+              <a
+                key={i}
+                href={item.section}
+                onClick={(e) => {
+                  e.preventDefault()
+                  goToSection(item.section)
+                }}
+              >
+                {item.label}
+              </a>
+            )
+          } else {
+            // regular route
+            return (
+              <Link
+                key={i}
+                to={item.to}
+                onClick={() => {
+                  if (item.onClick) item.onClick()
+                  else setOpen(false)
+                }}
+              >
+                {item.label}
+              </Link>
+            )
+          }
+        })}
       </div>
 
       <div

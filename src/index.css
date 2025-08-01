@@ -21,148 +21,21 @@ body {
   --accent: #FFFFFF;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Links */
 a {
   text-decoration: none;
   color: inherit;
 }
 
+/* Utility container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
-}
-
-/* Nav styles */
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--primary);
-  padding: 0.5rem 5rem;
-  height: 48px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 25px;
-  height: 20px;
-  cursor: pointer;
-}
-
-.hamburger span {
-  display: block;
-  height: 3px;
-  background: var(--accent);
-  border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Mobile / Tablet menu */
-@media (max-width: 1024px) {
-  nav {
-    height: 48px;
-    padding: 0.5rem 1rem;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  html {
-    scroll-padding-top: 48px;
-  }
-
-  .logo-container {
-    margin-right: 2rem;
-    display: flex;
-    align-items: center;
-  }
-
-  .logo-container img {
-    max-height: 32px;
-    width: auto;
-    object-fit: contain;
-  }
-
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    max-height: 0;
-    overflow: hidden;
-    background: var(--primary);
-    transition: max-height 0.3s ease;
-    z-index: 99;
-  }
-
-  .nav-links.open {
-    max-height: calc(100vh - 48px);
-    overflow-y: auto;
-    padding: 0.5rem 0;
-    background: var(--primary);
-  }
-
-  .nav-links a {
-    width: 100%;
-    padding: 0.75rem 0;
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--accent);
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    transition: background 0.2s;
-  }
-
-  .nav-links a:last-child {
-    border-bottom: none;
-  }
-
-  .nav-links a:hover {
-    background: rgba(255,255,255,0.1);
-  }
-
-  .hamburger {
-    display: flex;
-    width: 35px;
-    height: 20px;
-  }
-
-  /* Hide footer nav in mobile/tablet */
-  .footer-nav {
-    display: none !important;
-  }
-}
-
-/* Desktop nav link hover effect */
-@media (min-width: 1025px) {
-  .nav-links a {
-    color: var(--accent);
-    transition: color 0.2s ease;
-  }
-  .nav-links a:hover,
-  .nav-links a:active {
-    color: #e0c110;
-  }
-}
-
-/* Footer nav hover effect */
-.footer-nav a {
-  transition: color 0.2s ease;
-}
-.footer-nav a:hover,
-.footer-nav a:active {
-  color: #e0c110;
 }
 
 /* Section headers */
@@ -183,25 +56,21 @@ h2 {
   position: relative;
   color: var(--accent);
 }
-
 .hero-text {
   background: rgba(0, 0, 0, 0.6);
   padding: 1rem 2rem;
   border-radius: 8px;
   max-width: 80%;
 }
-
 .hero-text h1 {
   font-size: 3rem;
   margin: 0;
 }
-
 .hero-text h2 {
   font-size: 2rem;
   margin: 0.5rem 0;
   color: var(--secondary);
 }
-
 .hero-text h3 {
   font-size: 1rem;
   margin: 0.5rem 0;
@@ -214,7 +83,6 @@ h2 {
   justify-content: center;
   gap: 2rem;
 }
-
 .card {
   flex: 0 1 300px;
   padding: 1.5rem;
@@ -224,18 +92,15 @@ h2 {
   background: #fff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 .card h3 {
   font-size: 1.5rem;
   margin: 0.5rem 0;
 }
-
 .card p.subtitle {
   margin: 0.5rem 0;
   font-weight: bold;
   color: var(--secondary);
 }
-
 .card p.description {
   font-size: 0.95rem;
   line-height: 1.4;
@@ -248,12 +113,11 @@ img {
   border-radius: 8px;
 }
 
-/* Logo overrides */
+/* Logo overrides (when used outside navbar) */
 .logo-container {
   display: flex;
   align-items: center;
 }
-
 .logo-container img {
   max-height: 48px;
   width: auto;
@@ -276,7 +140,7 @@ img {
   }
 }
 
-/* on desktop: two-column layout */
+/* on desktop: two-column footer */
 @media (min-width: 1025px) {
   .footer-content {
     flex-direction: row;
@@ -302,23 +166,23 @@ img {
   margin: 2rem auto 0 auto;
 }
 
-/* 🔵 FIX: Adjust iframe height on desktop to stop footer overlap */
+/* 🔵 Fix: Adjust iframe height on desktop to stop footer overlap */
 @media (min-width: 1025px) {
   .contact-map iframe {
-    height: 220px;  /* shorter map on desktop */
-    margin-bottom: 1rem; /* little breathing space */
+    height: 220px;     /* slightly shorter */
+    margin-bottom: 1rem;
   }
 }
 
-/* Override global nav background for the footer nav only */
+/* Footer-nav override (transparent background, static) */
 .footer-nav {
-  background: transparent !important; /* let the footer’s background show through */
-  padding: 0 !important;             /* remove any padding that might push over the map */
-  position: static;                   /* ensure it doesn’t stick or overlap */
-  margin: 1rem 0;                     /* keep your desired spacing */
+  background: transparent !important;
+  padding: 0 !important;
+  position: static;
+  margin: 1rem 0;
 }
 
-/* Footer nav links hover just like the main navbar */
+/* Footer-nav links hover just like the main navbar */
 .footer-nav a {
   transition: color 0.2s ease;
 }
@@ -327,4 +191,3 @@ img {
 .footer-nav a:active {
   color: #e0c110 !important;
 }
-
