@@ -39,7 +39,10 @@ export default function Partners() {
       <h2>Meet the Partners</h2>
       <div className="partner-cards">
         {partners.map(p => (
-          <div key={p.id} className={`partner-card partner-card--${p.id}`}>
+          <div
+            key={p.id}
+            className={`partner-card partner-card--${p.id}`}
+          >
             <img
               src={p.img}
               alt={p.name}

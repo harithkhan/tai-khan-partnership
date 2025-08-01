@@ -1,9 +1,3 @@
-:root {
-  --primary:   #007ACC;
-  --secondary: #00529B;
-  --accent:    #FFFFFF;
-}
-
 /* Section wrapper */
 .partners-list {
   padding: 4rem 1rem;
@@ -16,53 +10,68 @@
   color: var(--primary);
 }
 
-/* Cards container: wrap on mobile, side-by-side on tablet+ */
+/* Cards container */
 .partner-cards {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0;
+  flex-wrap: wrap;        /* wrap on mobile */
+  gap: 1.5rem;            /* slight gap between cards */
   max-width: 1100px;
   margin: 0 auto;
 }
 @media (min-width: 769px) {
   .partner-cards {
-    flex-wrap: nowrap;
+    flex-wrap: nowrap;    /* no wrap on tablet+ */
   }
 }
 
 /* Individual card */
 .partner-card {
-  flex: 1 1 100%;
+  flex: 1 1 100%;         /* full width on mobile */
   background: #fff;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+@media (min-width: 769px) {
+  .partner-card {
+    flex: 1 1 40%;       /* ~40% each on tablet+ */
+  }
+}
+
+/* Card hover lift */
 .partner-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-@media (min-width: 769px) {
-  .partner-card {
-    flex: 1 1 40%;
-  }
 }
 
 /* Card image */
 .partner-card__img {
   width: 100%;
-  height: 500px;
+  height: 500px;          /* reduced from 500px */
   object-fit: cover;
   object-position: top center;
 }
 
-/* 🔹 Apply Harith’s nudge everywhere 🔹 */
-.partner-card--harith .partner-card__img {
-  object-position: center 32%;
+/* Nudge Harith’s image down on tablet+ */
+@media (min-width: 769px) {
+  .partner-card--harith .partner-card__img {
+    object-position: center 32%;
+  }
+}
+
+/* Mobile: shrink & center image */
+@media (max-width: 768px) {
+  .partner-card__img {
+    width: 100%;           /* narrower image */
+    height: 50%;         /* maintain aspect */
+    margin: 0 auto;       /* center it */
+  }
+  .partner-card--harith .partner-card__img {
+    object-position: center 45%;
+  }
 }
 
 /* Text block */
@@ -80,11 +89,10 @@
   font-weight: bold;
   color: var(--secondary);
 }
-/* Tighter bio lines */
 .partner-content .description {
   margin: 0 0 0.25rem;
   font-size: 0.95rem;
-  line-height: 1.3;
+  line-height: 1.4;
   white-space: pre-line;
 }
 
