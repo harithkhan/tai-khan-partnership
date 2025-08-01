@@ -1,17 +1,47 @@
 // src/components/Contact.jsx
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/websitelogo2.png'
 import { SiGooglemaps, SiWaze } from 'react-icons/si'
 
 export default function Contact() {
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  // footer nav items: either a `to` (route) or a `hash` (in‐page)
   const navItems = [
     { label: 'Home',         to: '/' },
-    { label: 'Services',     to: { pathname: '/', hash: '#services' } },
-    { label: 'Partners',     to: { pathname: '/', hash: '#partners' } },
+    { label: 'Services',     hash: 'services' },
+    { label: 'Partners',     hash: 'partners' },
     { label: 'Conveyancing', to: '/conveyancing' },
     { label: 'Debt Recovery',to: '/debt-recovery' },
   ]
+
+  function handleNav(e, item) {
+    e.preventDefault()
+    // route links
+    if (item.to) {
+      navigate(item.to)
+      // if it's Home, also scroll to top
+      if (item.to === '/') {
+        setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50)
+      }
+    }
+    // in-page links
+    if (item.hash) {
+      const scrollToSection = () => {
+        const el = document.getElementById(item.hash)
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+      }
+      if (location.pathname !== '/') {
+        // first go home, then scroll
+        navigate('/')
+        setTimeout(scrollToSection, 100)
+      } else {
+        scrollToSection()
+      }
+    }
+  }
 
   return (
     <footer
@@ -47,7 +77,6 @@ export default function Contact() {
             Contact Us
           </h2>
 
-          {/* centered wrapper, text remains left-aligned */}
           <div style={{ alignSelf: 'center', textAlign: 'left' }}>
             <img
               src={logo}
@@ -135,9 +164,10 @@ export default function Contact() {
             }}
           >
             {navItems.map(item => (
-              <Link
+              <a
                 key={item.label}
-                to={item.to}
+                href="#!"
+                onClick={e => handleNav(e, item)}
                 style={{
                   color: 'var(--accent)',
                   fontSize: '0.95rem',
@@ -149,7 +179,7 @@ export default function Contact() {
                 }}
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
           </nav>
 
