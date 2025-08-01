@@ -8,7 +8,7 @@ export default function Partners() {
   const partners = [
     {
       id:      'queennie',
-      name:    'Queennie Tai',
+      name:    'Queennie Tai Zee Queen',
       role:    'Managing Partner',
       special: 'Conveyancing & Corporate',
       img:     queennie,

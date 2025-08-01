@@ -38,7 +38,7 @@ export default function QueennieProfile() {
             className="profile-image"
           />
           <p>
-            Queenie holds an LLB (Hons) from the University of Hull and was
+            Queennie holds an LLB (Hons) from the University of Hull and was
             called to the Bar of England and Wales as a Barrister-at-Law by
             Lincoln’s Inn, having completed the Bar Professional Training Course
             (BPTC) at City University London. She was admitted to practice as
@@ -46,7 +46,7 @@ export default function QueennieProfile() {
             2019.
           </p>
           <p>
-            As the Managing Partner of the firm, Queenie oversees both
+            As the Managing Partner of the firm, Queennie oversees both
             Conveyancing and Corporate practices, demonstrating exceptional
             leadership and strategic management capabilities. Her extensive
             legal experience primarily encompasses real property and
@@ -56,12 +56,12 @@ export default function QueennieProfile() {
             apartments, and mixed developments.
           </p>
           <p>
-            Beyond project-based conveyancing, Queenie also possesses
+            Beyond project-based conveyancing, Queennie also possesses
             significant expertise in handling non-project sale and purchase
             transactions. Her depth of knowledge and meticulous attention to
             detail make her the counsel of choice for both Malaysian and
             international individuals and corporations seeking representation
-            and advice for complex real estate transactions. Queenie is known
+            and advice for complex real estate transactions. Queennie is known
             for her clear, practical guidance, and her commitment to delivering
             timely and commercially viable solutions tailored specifically to
             her clients’ objectives.
