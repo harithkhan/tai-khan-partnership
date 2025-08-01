@@ -1,3 +1,5 @@
+/* Partners.css */
+
 /* Section wrapper */
 .partners-list {
   padding: 4rem 1rem;
@@ -15,6 +17,7 @@
   display: flex;
   flex-wrap: wrap;        /* wrap on mobile */
   gap: 1.5rem;            /* slight gap between cards */
+  align-items: flex-start;/* prevent cards stretching to equal height */
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -65,9 +68,9 @@
 /* Mobile: shrink & center image */
 @media (max-width: 768px) {
   .partner-card__img {
-    width: 100%;           /* narrower image */
-    height: 50%;         /* maintain aspect */
-    margin: 0 auto;       /* center it */
+    width: 100%;         /* fill mobile width */
+    height: 450px;         /* half the container height */
+    margin: 0 auto;      /* center it */
   }
   .partner-card--harith .partner-card__img {
     object-position: center 45%;

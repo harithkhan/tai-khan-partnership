@@ -1,5 +1,3 @@
-/* Profile.css */
-
 /* Container for the entire profile page */
 .partner-profile {
   max-width: 800px;
@@ -13,59 +11,55 @@
 /* Header */
 .profile-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 .profile-header h1 {
   font-size: 2rem;
   color: var(--primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem;
 }
 .profile-header .subtitle {
   font-size: 1.1rem;
   color: var(--secondary);
   font-weight: bold;
+  margin-bottom: 0.75rem;
 }
 
-/* Contact links under header */
-.profile-contact {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 0.5rem;
-  flex-wrap: wrap;
+/* One‐line contact row */
+.contact-details {
+  margin-bottom: 1.5rem;
 }
-.profile-contact a {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
+.contact-details p {
+  margin: 0;
+  font-size: 1rem;
+}
+.contact-details .icon {
+  margin-right: 0.5rem;
+  vertical-align: middle;
   color: var(--primary);
-  text-decoration: none;
-  font-size: 0.95rem;
 }
-.profile-contact a:hover {
-  color: #e0c110;
+.contact-details a {
+  color: inherit;
+  text-decoration: underline;
 }
 
 /* Bio section wrapper (clears floats) */
 .profile-bio {
   overflow: auto;
 }
-/* Remove top margin from first paragraph */
-.profile-bio p:first-child {
-  margin-top: 0;
-}
 
 /* Profile image: cropped to top half, floats left */
 .profile-image {
   float: left;
   width: 300px;
-  height: 350px;
+  height: 350px;               /* only top half visible */
   object-fit: cover;
-  object-position: top center;
+  object-position: top center; /* show top half */
   border-radius: 8px;
   margin: 0 1rem 1rem 0;
 }
-/* Nudge Harith’s crop */
+
+/* Nudge Harith’s image cropping to align his head */
 .partner-profile--harith .profile-image {
   object-position: center 32%;
 }

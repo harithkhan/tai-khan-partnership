@@ -1,29 +1,33 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { FaWhatsapp } from 'react-icons/fa'
-import { MdEmail } from 'react-icons/md'
+import { FaWhatsapp, FaEnvelope } from 'react-icons/fa'
 import Contact from './Contact'
 import './Profile.css'
 import harithImg from '../assets/harith.jpg'
 
 export default function HarithProfile() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <>
       <section className="partner-profile partner-profile--harith">
         <div className="profile-header">
           <h1>Harith Khan</h1>
-          <p className="subtitle">Partner – Debt Recovery &amp; Litigation</p>
-          <div className="profile-contact">
-            <a href="mailto:harith@tkpartnership.com">
-              <MdEmail /> harith@tkpartnership.com
-            </a>
-            <a
-              href="https://wa.me/60163365110"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaWhatsapp /> +60 163 365 110
-            </a>
+          <p className="subtitle">
+            Partner – Debt Recovery &amp; Litigation
+          </p>
+          <div className="contact-details">
+            <p>
+                <FaEnvelope className="icon" />
+                <a href="mailto:harith@tkpartnership.com">
+                harith@tkpartnership.com
+                </a>
+                &nbsp;&nbsp;
+                <FaWhatsapp className="icon" />
+                +60163365110
+            </p>
           </div>
         </div>
 
@@ -41,7 +45,7 @@ export default function HarithProfile() {
             Advocate and Solicitor of the High Court of Malaya in November 2018.
           </p>
           <p>
-            Harith undertook his pupillage at Wong &amp; Partners, a member firm of
+            Harith undertook his pupillage at Wong & Partners, a member firm of
             Baker McKenzie, within the Dispute Resolution and Intellectual
             Property practice group. He was extensively trained in litigation,
             gaining valuable exposure and practical experience in commercial
@@ -53,8 +57,8 @@ export default function HarithProfile() {
           <p>
             Currently, Harith specialises in Debt Recovery, particularly in
             achieving efficient, effective settlements outside of court. He is
-            dedicated to assisting clients in recovering monies owed to them in a
-            professional, ethical, and legally compliant manner. Harith is
+            dedicated to assisting clients in recovering monies owed to them
+            in a professional, ethical, and legally compliant manner. Harith is
             committed to delivering pragmatic solutions that help clients avoid
             costly and prolonged court battles, while steadfastly ensuring that
             all actions taken align with the highest standards of integrity and
@@ -67,7 +71,7 @@ export default function HarithProfile() {
         </Link>
       </section>
 
-      {/* Footer */}
+      {/* Contact us footer */}
       <Contact />
     </>
   )
