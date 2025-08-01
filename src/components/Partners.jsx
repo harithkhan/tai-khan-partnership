@@ -1,38 +1,62 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import './Partners.css'
 import harith from '../assets/harith.jpg'
 import queennie from '../assets/queennie.jpg'
 
 export default function Partners() {
   const partners = [
-    { id: 'queennie', name: 'Queennie Tai', role: 'Managing Partner', special: 'Conveyancing & Corporate', img: queennie },
-    { id: 'harith', name: 'Harith Khan', role: 'Partner', special: 'Debt Recovery & Litigation', img: harith },
+    {
+      id:      'queennie',
+      name:    'Queennie Tai',
+      role:    'Managing Partner',
+      special: 'Conveyancing & Corporate',
+      img:     queennie,
+      slug:    'queennie',
+      bio: [
+        'LLB (Hons), University of Hull',
+        'Barrister-at-Law (Lincoln’s Inn), BPTC, City University London',
+        'Advocate & Solicitor, High Court of Malaya since 2019'
+      ]
+    },
+    {
+      id:      'harith',
+      name:    'Harith Khan',
+      role:    'Partner',
+      special: 'Debt Recovery & Litigation',
+      img:     harith,
+      slug:    'harith',
+      bio: [
+        'LLB (Hons), University of Reading',
+        'Barrister-at-Law (Lincoln’s Inn), BPTC, City University London',
+        'Advocate & Solicitor, High Court of Malaya since 2018'
+      ]
+    }
   ]
+
   return (
-    <section id="partners" className="container" style={{ padding: '3rem 0' }}>
-      <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center' }}>
-        Our Partners
-      </h2>
-      <div className="card-container">
-        {partners.map((p) => (
-          <div key={p.id} className="card">
-            <img src={p.img} alt={p.name} style={{ width: '100%', height: '400px', objectFit: 'cover', objectPosition: p.id === 'queennie' ? 'top' : 'center', borderRadius: '8px' }} />
-            <h3 style={{ margin: '1rem 0 0' }}>{p.name}</h3>
-            <p className="subtitle">{p.role}</p>
-            <p className="description">{p.special}</p>
-            {p.id === 'queennie' && (
-              <>
-                <p className="description">LLB (Hons), University of Hull</p>
-                <p className="description">Barrister-at-Law (Lincoln's Inn), BPTC, City University London</p>
-                <p className="description">Advocate & Solicitor, High Court of Malaya since 2019</p>
-              </>
-            )}
-            {p.id === 'harith' && (
-              <>
-                <p className="description">LLB (Hons), University of Reading</p>
-                <p className="description">Barrister-at-Law (Lincoln's Inn), BPTC, City University London</p>
-                <p className="description">Advocate & Solicitor, High Court of Malaya since 2018</p>
-              </>
-            )}
+    <section id="partners" className="partners-list">
+      <h2>Meet the Partners</h2>
+      <div className="partner-cards">
+        {partners.map(p => (
+          <div key={p.id} className={`partner-card partner-card--${p.id}`}>
+            <img
+              src={p.img}
+              alt={p.name}
+              className="partner-card__img"
+            />
+            <div className="partner-content">
+              <h3>{p.name}</h3>
+              <p className="subtitle">
+                {p.role} – {p.special}
+              </p>
+              {p.bio.map((line, i) => (
+                <p key={i} className="description">{line}</p>
+              ))}
+              <Link to={`/partners/${p.slug}`} className="view-profile">
+                View Full Profile →
+              </Link>
+            </div>
           </div>
         ))}
       </div>
