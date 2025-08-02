@@ -1,0 +1,121 @@
+/* src/components/Conveyancing.css */
+
+.conveyancing {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Main title */
+.cv-main-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+/* Hero image */
+.cv-main-image {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+/* Grid: 1 col mobile, 2 cols tablet+ */
+.cv-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 600px) {
+  .cv-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Card */
+.cv-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title & icon */
+.cv-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+.cv-icon {
+  margin-right: 1rem;
+  color: var(--primary);
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+
+/* Italic note under first */
+.cv-note {
+  font-style: italic;
+  color: #555;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Contact line in consultation card */
+.cv-contact {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+.cv-contact .whatsapp {
+  color: #25D366;
+  margin-right: 0.5rem;
+}
+
+/* WhatsApp button */
+.cv-whatsapp-btn {
+  margin-top: 0.75rem;
+  align-self: start;
+  display: inline-flex;
+  align-items: center;
+  background: #25D366;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.cv-whatsapp-btn .cv-icon {
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+}
+.cv-whatsapp-btn:hover {
+  opacity: 0.9;
+}
+
+/* Back link */
+.cv-back {
+  display: inline-block;
+  margin: 2rem 0 0;
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.cv-back:hover {
+  color: #e0c110;
+}
