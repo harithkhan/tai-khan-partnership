@@ -88,16 +88,6 @@ export default function Contact() {
                 objectFit: 'contain',
               }}
             />
-            <h3
-              style={{
-                margin: '0.5rem 0 0 0',
-                fontWeight: 500,
-                fontSize: '1.25rem',
-                textAlign: 'left',
-              }}
-            >
-              Tai &amp; Khan Partnership
-            </h3>
             <p style={{ margin: '0.25rem 0', lineHeight: 1 }}>
               127A Jalan Imbi, Off Jalan Bukit Bintang
             </p>
