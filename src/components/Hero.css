@@ -14,7 +14,7 @@
 
 /* Dark translucent box behind the copy */
 .hero-text {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
   padding: 1.5rem 2rem;
   border-radius: 8px;
   max-width: 80%;
