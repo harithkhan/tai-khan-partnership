@@ -1,6 +1,6 @@
-// src/components/Hero.jsx
 import React from 'react'
 import heroImage from '../assets/hero4.jpg'
+import './Hero.css'
 
 export default function Hero() {
   return (
@@ -14,9 +14,9 @@ export default function Hero() {
       }}
     >
       <div className="hero-text">
-        <h1 style={{ color: 'var(--accent)' }}>Tai & Khan Partnership</h1>
-        <h2 style={{ color: 'var(--accent)' }}>Your Reliable Lawyers</h2>
-        <h3 style={{ color: 'var(--accent)' }}>Every Call Returned. Every Detail Checked. Every Goal Met</h3>
+        <h1>Legal Confidence Delivered</h1>
+        <h2>Specialists in Conveyancing &amp; Debt Recovery</h2>
+        <p>Every Call Returned, Every Detail Checked, Every Goal Met</p>
       </div>
     </section>
   )

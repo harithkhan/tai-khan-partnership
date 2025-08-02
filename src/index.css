@@ -44,38 +44,6 @@ h2 {
   margin-top: 0;
 }
 
-/* Hero */
-.hero {
-  height: 80vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  color: var(--accent);
-}
-.hero-text {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  max-width: 80%;
-}
-.hero-text h1 {
-  font-size: 3rem;
-  margin: 0;
-}
-.hero-text h2 {
-  font-size: 2rem;
-  margin: 0.5rem 0;
-  color: var(--secondary);
-}
-.hero-text h3 {
-  font-size: 1rem;
-  margin: 0.5rem 0;
-}
-
 /* Card styles */
 .card-container {
   display: flex;
