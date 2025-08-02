@@ -1,4 +1,3 @@
-// src/components/Conveyancing.jsx
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {
@@ -11,6 +10,7 @@ import {
   FaWhatsapp,
 } from 'react-icons/fa'
 import conveyancingImage from '../assets/conveyancing.jpg'
+import Contact from './Contact'
 import './Conveyancing.css'
 
 export default function Conveyancing() {
@@ -81,35 +81,39 @@ export default function Conveyancing() {
   ]
 
   return (
-    <section id="conveyancing" className="conveyancing">
-      <h2 className="cv-main-title">Expert Conveyancing Services in Malaysia</h2>
+    <>
+      <section id="conveyancing" className="conveyancing">
+        <h2 className="cv-main-title">Expert Conveyancing Services in Malaysia</h2>
 
-      <img
-        src={conveyancingImage}
-        alt="Conveyancing"
-        className="cv-main-image"
-      />
+        <img
+          src={conveyancingImage}
+          alt="Conveyancing"
+          className="cv-main-image"
+        />
 
-      <div className="cv-grid">
-        {sections.map((sec, i) => (
-          <div key={i} className="cv-card">
-            <h3 className="cv-title">
-              {sec.icon}
-              {sec.title}
-            </h3>
-            {sec.paragraphs.map((p, j) => (
-              <p key={j} className={j === 1 && i === 0 ? 'cv-note' : ''}>
-                {p}
-              </p>
-            ))}
-            {sec.extra}
-          </div>
-        ))}
-      </div>
+        <div className="cv-grid">
+          {sections.map((sec, i) => (
+            <div key={i} className="cv-card">
+              <h3 className="cv-title">
+                {sec.icon}
+                {sec.title}
+              </h3>
+              {sec.paragraphs.map((p, j) => (
+                <p key={j} className={j === 1 && i === 0 ? 'cv-note' : ''}>
+                  {p}
+                </p>
+              ))}
+              {sec.extra}
+            </div>
+          ))}
+        </div>
 
-      <Link to="/" className="cv-back">
-        ← Back to Home
-      </Link>
-    </section>
+        <Link to="/" className="cv-back">
+          ← Back to Home
+        </Link>
+      </section>
+
+      <Contact />
+    </>
   )
 }

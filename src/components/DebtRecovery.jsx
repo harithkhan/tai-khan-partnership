@@ -9,12 +9,11 @@ import {
   FaWhatsapp,
 } from 'react-icons/fa'
 import debtImage from '../assets/debt.jpg'
+import Contact from './Contact'
 import './DebtRecovery.css'
 
 export default function DebtRecovery() {
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+  useEffect(() => window.scrollTo(0, 0), [])
 
   const sections = [
     {
@@ -75,38 +74,42 @@ export default function DebtRecovery() {
   ]
 
   return (
-    <section id="debt-recovery" className="debt-recovery">
-      <h2 className="dr-main-title">Success-Based Debt Recovery</h2>
+    <>
+      <section id="debt-recovery" className="debt-recovery">
+        <h2 className="dr-main-title">Success-Based Debt Recovery</h2>
 
-      <img
-        src={debtImage}
-        alt="Debt Recovery"
-        className="dr-main-image"
-      />
+        <img
+          src={debtImage}
+          alt="Debt Recovery"
+          className="dr-main-image"
+        />
 
-      <div className="dr-grid">
-        {sections.map((sec, i) => (
-          <div
-            key={i}
-            className={`dr-card${sec.extra ? ' dr-card--span2' : ''}`}
-          >
-            <h3 className="dr-title">
-              {sec.icon}
-              {sec.title}
-            </h3>
-            {sec.paragraphs.map((p, j) => (
-              <p key={j} className={j === 1 && i === 0 ? 'dr-note' : ''}>
-                {p}
-              </p>
-            ))}
-            {sec.extra}
-          </div>
-        ))}
-      </div>
+        <div className="dr-grid">
+          {sections.map((sec, i) => (
+            <div
+              key={i}
+              className={`dr-card${sec.extra ? ' dr-card--span2' : ''}`}
+            >
+              <h3 className="dr-title">
+                {sec.icon}
+                {sec.title}
+              </h3>
+              {sec.paragraphs.map((p, j) => (
+                <p key={j} className={j === 1 && i === 0 ? 'dr-note' : ''}>
+                  {p}
+                </p>
+              ))}
+              {sec.extra}
+            </div>
+          ))}
+        </div>
 
-      <Link to="/" className="dr-back">
-        ← Back to Home
-      </Link>
-    </section>
+        <Link to="/" className="dr-back">
+          ← Back to Home
+        </Link>
+      </section>
+
+      <Contact />
+    </>
   )
 }
